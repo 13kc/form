@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <title>Document</title>
+</head>
+    <body>
+        <div class="container">
+            <h1>Solicitud de Contacto</h1>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" id="apellido" name="apellido" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="dni">DNI:</label>
+                    <input type="text" id="dni" name="dni" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="tipo-seguro">Tipo de seguro:</label>
+                    <select id="tipo-seguro" name="tipo-seguro">
+                        <option value="basico" data-precio="500">Básico</option>
+                        <option value="intermedio" data-precio="1000">Intermedio</option>
+                        <option value="premium" data-precio="1500">Premium</option>
+                    </select>
+                </div>
+    
+                <div class="form-group">
+                    <label for="precio-seguro">Precio del seguro:</label>
+                    <span id="precio-seguro">$500</span>
+                </div>
+    
+                <button type="submit">Solicitar Contacto</button>
+            </form>
+        </div>
+        <script>
+            // Obtenemos el elemento select y el span del precio
+            var tipoSeguro = document.getElementById("tipo-seguro");
+            var precioSeguro = document.getElementById("precio-seguro");
+        
+            // Agregamos un evento de cambio al elemento select
+            tipoSeguro.addEventListener("change", function () {
+                // Obtenemos el precio asociado a la opción seleccionada
+                var selectedOption = tipoSeguro.options[tipoSeguro.selectedIndex];
+                var precio = selectedOption.getAttribute("data-precio");
+        
+                // Actualizamos el texto del span del precio
+                precioSeguro.textContent = "$" + precio;
+            });
+        </script>
+</body>
+</html>
